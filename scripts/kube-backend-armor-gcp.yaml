@@ -1,0 +1,8 @@
+apiVersion: cloud.google.com/v1beta1
+kind: BackendConfig
+metadata:
+  namespace: default
+  name: kube-armor-config
+spec:
+  securityPolicy:
+    name: "kube-armor-security-policy"

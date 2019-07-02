@@ -1,0 +1,19 @@
+{
+  "name": "kube_e2e_solution",
+  "version": "1.0.0",
+  "description": "kube_e2e_solution",
+  "author": "me@navveenbalani.com",
+  "license" : "GPL-3.0-or-later",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "request": "^2.88.0"  
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/navveenbalani/google-cloud-kubernetes-secure-e2e.git"
+  }
+}

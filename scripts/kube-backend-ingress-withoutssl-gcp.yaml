@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kube-ingress-gcp
+  annotations:
+     kubernetes.io/ingress.allow-http: "true"
+     kubernetes.io/ingress.global-static-ip-name: navveen-api-ip	
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+            serviceName: kube-node-service-gcp		
+            servicePort: 8081

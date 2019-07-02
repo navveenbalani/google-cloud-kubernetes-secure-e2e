@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  kube-node-service-gcp
+  labels:
+    apps: backend-gcp
+  annotations:
+    beta.cloud.google.com/backend-config: '{"ports": {"8081":"kube-armor-config"}}'  
+spec:
+  type: NodePort
+  selector:
+    apps: backend-gcp
+  ports:
+  - port: 8081
+    targetPort: 8081
+
