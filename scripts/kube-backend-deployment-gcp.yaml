@@ -27,12 +27,12 @@ spec:
         ]
         readinessProbe:
          httpGet:
-          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMr-Tc
+          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMrTc-
           port: 8081
          initialDelaySeconds: 60
         livenessProbe:
          httpGet:
-          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMr-Tc
+          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMrTc-
           port: 8081
          initialDelaySeconds: 60
         ports:
