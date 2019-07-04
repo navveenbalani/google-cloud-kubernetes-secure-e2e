@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: backend-app-deployment-nginx
+spec:
+  selector:
+    matchLabels:
+      apps: backend-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        apps: backend-nginx
+    spec:
+      containers:
+      - name: kube-e2e-service
+        image: gcr.io/navveen-api/kube-e2e-solution:v1
+        ports:
+          - containerPort: 8080
+      - name: kube-esp
+        image: gcr.io/endpoints-release/endpoints-runtime:1
+        args: [
+          "--http_port", "8081",
+          "--backend", "127.0.0.1:8080",
+          "--service", "apis.navveenbalani.dev",
+          "--rollout_strategy", "managed",
+        ]
+        readinessProbe:
+         httpGet:
+          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMr-Tc
+          port: 8081
+         initialDelaySeconds: 60
+        livenessProbe:
+         httpGet:
+          path: /healthz?key=AIzaSyC0m7d4cc-jOwJIzymv9ntObF1ukIMr-Tc
+          port: 8081
+         initialDelaySeconds: 60
+        ports:
+          - containerPort: 8081
